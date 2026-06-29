@@ -19,8 +19,7 @@ export STARTUPWMCLASS=io.github.qwersyk.Newelle
 export GTK_CLASS_FIX=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/newelle \
-             /usr/lib/libgirepository*
+quick-sharun /usr/bin/newelle
 
 # Additional changes can be done in between here
 
