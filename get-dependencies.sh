@@ -8,26 +8,49 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-echo "Building package dependencies and package..."
+echo "Installing pre-built packages from Arch Linux CN..."
 echo "---------------------------------------------------------------"
-make-aur-package python-ollama
-make-aur-package python-newspaper
-# python-sounddevice is a dependency to pocketsphinx
-make-aur-package python-sounddevice && make-aur-package pocketsphinx
+make-aur-package --archlinuxcn \
+  python-sounddevice \
+  pocketsphinx \
+  llama.cpp \
+  python-tokenizers \
+  python-fake-useragent
+
+echo "Building remaining packages from source..."
+echo "---------------------------------------------------------------"
+
+_clean_srcdir() {
+  for d in "$@"; do
+    rm -rf "./$d"
+  done
+}
+
+make-aur-package python-ollama && _clean_srcdir python-ollama
+make-aur-package python-newspaper && _clean_srcdir python-newspaper
+
 # python-proto-plus is a dependency to python-grpcio-status
-make-aur-package python-proto-plus && make-aur-package python-grpcio-status
+make-aur-package python-proto-plus && make-aur-package python-grpcio-status && _clean_srcdir python-proto-plus python-grpcio-status
+
 # python-grpcio-status and python-proto-plus are a dependency to python-google-cloud-speech,
 # python-google-cloud-speech, python-groq and pocketsphinx are a dependency to python-speechrecognition
-make-aur-package python-groq && make-aur-package python-google-cloud-speech && make-aur-package python-speechrecognition
+make-aur-package python-groq && make-aur-package python-google-cloud-speech && make-aur-package python-speechrecognition && _clean_srcdir python-groq python-google-cloud-speech python-speechrecognition
+
 # python-tflite-runtime is a dependency to python-openwakeword
-make-aur-package python-tflite-runtime && make-aur-package python-openwakeword
-# python-gguf is a dependency to llama.cpp
-make-aur-package python-gguf && make-aur-package llama.cpp
+make-aur-package python-tflite-runtime && make-aur-package python-openwakeword && _clean_srcdir python-tflite-runtime python-openwakeword
+
+# python-gguf is a dependency to llama.cpp (already installed via archlinuxcn)
+make-aur-package python-gguf && _clean_srcdir python-gguf
+
 # python-banks, python-llama-index-instrumentation and python-llama-index-workflows are dependencies to python-llama-index-core
-make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core
-# python-tokenizers is a dependency to python-model2vec
-make-aur-package python-tokenizers && make-aur-package python-model2vec
-make-aur-package faiss
-# python-fake-useragent and python-primp are dependencies to python-ddgs
-make-aur-package python-fake-useragent && make-aur-package python-primp && make-aur-package python-ddgs
+make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core && _clean_srcdir python-banks python-llama-index-instrumentation python-llama-index-workflows python-llama-index-core
+
+# python-tokenizers is a dependency to python-model2vec (tokenizers already installed via archlinuxcn)
+make-aur-package python-model2vec && _clean_srcdir python-model2vec
+
+make-aur-package faiss && _clean_srcdir faiss
+
+# python-fake-useragent and python-primp are dependencies to python-ddgs (fake-useragent already installed via archlinuxcn)
+make-aur-package python-primp && make-aur-package python-ddgs && _clean_srcdir python-primp python-ddgs
+
 make-aur-package
