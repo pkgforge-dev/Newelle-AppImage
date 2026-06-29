@@ -19,7 +19,8 @@ make-aur-package python-proto-plus && make-aur-package python-grpcio-status
 # python-grpcio-status and python-proto-plus are a dependency to python-google-cloud-speech,
 # python-google-cloud-speech, python-groq and pocketsphinx are a dependency to python-speechrecognition
 make-aur-package python-groq && make-aur-package python-google-cloud-speech && make-aur-package python-speechrecognition
-make-aur-package python-openwakeword
+# python-tflite-runtime is a dependency to python-openwakeword
+make-aur-package python-tflite-runtime && make-aur-package python-openwakeword
 make-aur-package llama.cpp
 make-aur-package python-llama-index-core
 make-aur-package python-model2vec
