@@ -23,8 +23,8 @@ make-aur-package python-groq && make-aur-package python-google-cloud-speech && m
 make-aur-package python-tflite-runtime && make-aur-package python-openwakeword
 # python-gguf is a dependency to llama.cpp
 make-aur-package python-gguf && make-aur-package llama.cpp
-# python-banks, python-dataclasses-json, python-llama-index-instrumentation and python-llama-index-workflows are dependencies to python-llama-index-core
-make-aur-package python-banks && make-aur-package python-dataclasses-json && make-aur-package python-llama-index-instrumentation && make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core
+# python-banks, python-llama-index-instrumentation and python-llama-index-workflows are dependencies to python-llama-index-core
+make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core
 # python-tokenizers is a dependency to python-model2vec
 make-aur-package python-tokenizers && make-aur-package python-model2vec
 make-aur-package faiss-cpu
