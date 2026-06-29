@@ -40,10 +40,10 @@ depends=(
 
   # === OPTIONAL: Web search / Article reading ===
   'python-newspaper'     # opt: newspaper3k (AUR), article extraction
-  'python-beautifulsoup4'# opt: bs4, HTML parsing (lazy in website_scraper)
+  'python-beautifulsoup4' # opt: bs4, HTML parsing (lazy in website_scraper)
   'python-soupsieve'     # opt: soupsieve, transitive via bs4
   'python-markdownify'   # opt: markdownify, HTML→Markdown (lazy in website_scraper)
-  'python-lxml-html-clean'# opt: lxml-html-clean, HTML sanitization
+  'python-lxml-html-clean' # opt: lxml-html-clean, HTML sanitization
 
   # === OPTIONAL: STT / Wakeword ===
   'python-speechrecognition' # opt: speechrecognition (AUR)
