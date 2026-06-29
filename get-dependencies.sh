@@ -20,6 +20,9 @@ make-aur-package --archlinuxcn \
 echo "Building remaining packages from source..."
 echo "---------------------------------------------------------------"
 
+# Limit parallelism to avoid OOM on heavy C++ packages
+MAKEFLAGS="-j2"; export MAKEFLAGS
+
 _clean_srcdir() {
   for d in "$@"; do
     rm -rf "./$d"
