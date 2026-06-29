@@ -22,14 +22,3 @@ make-aur-package faiss-cpu
 make-aur-package python-ddgs
 make-aur-package python-fake-useragent
 make-aur-package
-
-
-# If the application needs to be manually built that has to be done down here
-
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
