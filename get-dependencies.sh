@@ -45,7 +45,7 @@ make-aur-package --chaotic-aur python-sentencepiece
 make-aur-package python-gguf && _clean_srcdir python-gguf
 
 # python-banks, python-llama-index-instrumentation and python-llama-index-workflows are dependencies to python-llama-index-core
-make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && PRE_BUILD_CMDS="pacman -S --noconfirm python-pip; pip install 'uv_build>=0.9.10,<=0.11.16'; sed -i \"s/ 'python-uv-build'//g\" PKGBUILD; sed -i \"s/'python-uv-build' //g\" PKGBUILD" make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core && _clean_srcdir python-banks python-llama-index-instrumentation python-llama-index-workflows python-llama-index-core
+make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && PRE_BUILD_CMDS="pacman -S --noconfirm python-pip; pip install --break-system-packages 'uv_build>=0.9.10,<=0.11.16'; sed -i \"s/ 'python-uv-build'//g\" PKGBUILD; sed -i \"s/'python-uv-build' //g\" PKGBUILD" make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core && _clean_srcdir python-banks python-llama-index-instrumentation python-llama-index-workflows python-llama-index-core
 
 # python-tokenizers is a dependency to python-model2vec (tokenizers already installed via archlinuxcn)
 make-aur-package python-model2vec && _clean_srcdir python-model2vec
