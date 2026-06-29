@@ -12,7 +12,7 @@ echo "Building package dependencies and package..."
 echo "---------------------------------------------------------------"
 make-aur-package python-ollama
 make-aur-package python-newspaper
-make-aur-package python-pocketsphinx
+make-aur-package pocketsphinx
 make-aur-package python-groq
 make-aur-package python-google-cloud-speech
 make-aur-package python-speechrecognition
