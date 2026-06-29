@@ -27,7 +27,7 @@ make-aur-package python-gguf && make-aur-package llama.cpp
 make-aur-package python-banks && make-aur-package python-llama-index-instrumentation && make-aur-package python-llama-index-workflows && make-aur-package python-llama-index-core
 # python-tokenizers is a dependency to python-model2vec
 make-aur-package python-tokenizers && make-aur-package python-model2vec
-make-aur-package faiss-cpu
+make-aur-package faiss
 # python-fake-useragent and python-primp are dependencies to python-ddgs
 make-aur-package python-fake-useragent && make-aur-package python-primp && make-aur-package python-ddgs
 make-aur-package
