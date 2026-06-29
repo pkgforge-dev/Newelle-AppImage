@@ -48,7 +48,7 @@ make-aur-package python-banks && make-aur-package python-llama-index-instrumenta
 # python-tokenizers is a dependency to python-model2vec (tokenizers already installed via archlinuxcn)
 make-aur-package python-model2vec && _clean_srcdir python-model2vec
 
-PRE_BUILD_CMDS="export MAKEFLAGS='-j1'" make-aur-package faiss && _clean_srcdir faiss
+PRE_BUILD_CMDS="sed -i 's/cmake --build build -j/cmake --build build -j1/g' PKGBUILD; sed -i 's/cmake --build build_gpu -j/cmake --build build_gpu -j1/g' PKGBUILD" make-aur-package faiss && _clean_srcdir faiss
 
 # python-fake-useragent and python-primp are dependencies to python-ddgs (fake-useragent already installed via archlinuxcn)
 make-aur-package python-primp && make-aur-package python-ddgs && _clean_srcdir python-primp python-ddgs
